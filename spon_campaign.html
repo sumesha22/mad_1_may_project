@@ -1,0 +1,39 @@
+{% extends "spon_profile.html" %}
+{% block content %}
+
+<div class="search-container">
+    <form action="/search" method="GET"> <!-- Replace "/search" with your actual search endpoint -->
+      <input type="text" placeholder="Search..." name="query" class="search-box" required>
+      <button type="submit" class="search-button">Search</button>
+      </form></div>
+<div id="add" class="container">
+    <button id="add_but" class="btn btn-outline-danger"><a href="{{url_for('campaigns_1',S_id=sponsor.S_id)}}" >Add Campaign</a></button>
+    <!--<img src="static/add_vector.png" alt="user_profile">-->
+</div>
+<div id="camp">
+<form name="form1" method="post">
+<h5><i>Campaign Details</i></h5><br>
+    <table class="table table-hover">
+        {% for c in campaigns %}
+        <tr align="centre">
+        
+            <th>
+                <h6>Campaign Name : <i>{{c.C_name}}</i></h6>
+                <h6>{{c.C_description}}</h6>
+            </th>
+            <td>
+            <div align="right">
+            <button class="btn btn-secondary"><a href="{{url_for('campaigns_2',C_id=c.C_id)}}" >View</a></button>
+            <button class="btn btn-secondary"><a href="{{url_for('delete_campaign',C_id=c.C_id,S_id=S_id)}}" >Delete</a></button>
+
+            <!-- <form action="{{ url_for('delete_campaign', C_id=c.C_id) }}" method="post">
+            <button class="btn btn-danger" type="submit">Delete</button> -->
+            <!-- <input type="hidden" name="_method" value="DELETE"> </form> -->
+            </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    </form>
+</div>
+{% endblock %}

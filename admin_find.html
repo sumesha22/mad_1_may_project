@@ -1,0 +1,53 @@
+{% extends "admin_info.html" %}
+{% block content %}
+
+<div class="search-container">
+    <form action="/search" method="GET">
+      <input type="text" placeholder="Search..." name="query" class="search-box" required>
+      <button type="submit" class="search-button">Search</button><br><br>
+</div>
+<div>
+<h4 id="sp"><i>Sponsors List</i></h4><br>
+<form name="form1" method="post">
+    <table class="table table-hover">
+    {% for c in sponsors %}
+        <tr align="right">
+            <th>
+            <h6>{{ c.S_username }}</h6>
+            </th>
+            <td>
+            <div align="right">
+            <a href="{{url_for('view_sponsor',username=c.S_username)}}" >
+                <!--{{ c.username }} - {{ c.id }}-->
+            </a>
+            <input type="submit" name="Submit" value="View" class="btn btn-secondary"/>
+            <input type="submit" name="Submit" value="Flag" class="btn btn-danger"/>
+            </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    </form>
+</div><br><br>
+
+<h4 id="s"><i>Influencers List</i></h4><br>
+<form name="form1" method="post">
+    <table class="table table-hover">
+    {% for c in Influencer %}
+        <tr align="right">
+            <th>
+            <h6>{{ c.I_username }}</h6>
+            </th>
+            <td>
+            <div align="right">
+            <input type="submit" name="Submit" value="View" class="btn btn-secondary"/>
+            <input type="submit" name="Submit" value="Flag" class="btn btn-danger"/>
+            </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    </form>
+</div>
+
+{% endblock %}

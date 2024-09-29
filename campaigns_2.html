@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width",initial-scale=l">
+        <title>spon_profile</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+        .search-container{
+            padding-top:20px;
+            text-align:center;
+        }
+        .navbar{
+            color:white;
+            padding-top:20px;
+            padding-bottom:20px;
+            border:solid white;
+            border-width: 4px;
+            text-align:center;
+            background-color: rgb(18, 0, 15);
+        }
+        .container{
+            margin-top: 50px;
+            padding:15px;
+            border:solid rgb(18, 0, 15);
+            text-align: right;
+            background-color: white;
+        }
+        [id]{           
+            padding-left: 40px;
+        }
+        #view{
+            padding-right: 90px;
+        }
+        #add{
+            border:solid white;
+            text-align:center;
+        }
+        #add_but{
+            padding-left:20px;
+            padding-right:20px;
+        }
+        img{
+            border-radius: 50%;
+            width:40px;
+        
+        }
+        #camp_1{
+            color: black;
+            text-align:left;
+        }
+        #title{
+            padding:100px;
+        }
+        a{
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from parent */
+        }
+        .card {
+            width: 500px; /* Adjust width as needed */
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+            background-color: #ffffff;
+            margin: 10px; /* Adjust margin as needed */
+            text-align:center ;
+            margin:10px auto;
+        }
+
+        /* Optional: Style for card title */
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Optional: Style for card content */
+        .card-content {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .card:hover {
+            transform: scale(1.05); /* Scale up the card on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a larger shadow on hover */
+        }
+        </style>
+    </head>
+    <body>
+        <div id="header" class="navbar">
+            <h6><i>Sponsor's Dashboard</i></h6><br><br>
+            <button type="submit" class="btn btn-secondary"><a href="{{url_for('spon_profile', S_username=S_username)}}" >info</a></button>
+            <button type="submit" class="btn btn-secondary"><a href="{{url_for('spon_campaign',S_id=campaign.sponsor_id)}}">Campaigns</a></button>
+            <button type="submit" class="btn btn-secondary"><a href="{{url_for('spon_find')}}">Find</a></button>
+            <button type="submit" class="btn btn-secondary"><a href="{{url_for('status')}}">Status</a></button>
+            <button type="submit" class="btn btn-secondary"><a href="{{url_for('login')}}">Logout</a></button><br>
+        </div><br>
+<div id="details" class="card">
+    <div class="card-title"><h3>{{ campaign.C_name }}</h3></div><br>
+    <div class="card-content">
+    <h5>{{ campaign.C_description }}</h5>
+    <h6>Start Date : {{ campaign.C_start_date }}</h6>
+    <h6>End Date : {{ campaign.C_end_date }}</h6>
+    <h6>Goals : {{ campaign.C_goals }}</h6></div>
+</div>
+<div id="add" class="container">
+    <button id="add_but" class="btn btn-outline-danger">Create New Add Request</a></button>
+</body>
+</html>

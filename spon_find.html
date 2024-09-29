@@ -1,0 +1,23 @@
+{% extends "spon_profile.html" %}
+{% block content %}
+<div class="search-container">
+    <form action="/search" method="GET"> <!-- Replace "/search" with your actual search endpoint -->
+      <input type="text" placeholder="Search..." name="query" class="search-box" required>
+      <button type="submit" class="search-button">Search</button>
+      </form></div>
+      <div id="view" class="container">
+        <button class="btn btn-secondary">view</button>
+      </div>
+    <div id="view" class="container">
+        <button class="btn btn-secondary">view</button>
+    </div>
+    <div class="container">
+        <button class="btn btn-secondary">view</button>
+        <button class="btn btn-success">accept</button>
+    </div>
+    <div class="container">
+        <button class="btn btn-secondary">view</button>
+        <button class="btn btn-success">accept</button>
+    </div>
+    {% endblock %}
+    
